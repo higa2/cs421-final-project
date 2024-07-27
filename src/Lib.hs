@@ -78,8 +78,8 @@ binom n p = liftM2 (+) (bern p) (binom (n - 1) p)
 
 -- | Represent continuous distributions as sampleable
 data SampleableContinuous = Uniform | StdNormal
-instance Sampleable StdNormal where 
-  sample g StdNormal = normal 
+instance Sampleable SampleableContinuous where 
+  sample g StdNormal = normal g
 
 -- | Simple MC estimation 
 simpleEstimation :: R.StdGen -> Int -> Dist Int -> Double
