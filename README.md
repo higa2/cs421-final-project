@@ -5,14 +5,17 @@ Final Project for CS421
 ```bash
 stack build random
 stack ghci
-:l src/Lib.hs
+:l main.hs
 ```
 
-### Simple estimation on discrete distribution
+### Example: Sampling from a distribution
 ```haskell
-g = R.mkStdGgen 0
-simpleEstimation g 10 $ toDouble $ uniform [1..6]
+sampleN g 100 $ normal 0 1
+    where
+        g = R.mkStdGgen 0
 ```
+
+If you want to implement your own distributions there are several examples in Main.hs. 
 
 
 
